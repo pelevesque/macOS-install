@@ -1,0 +1,246 @@
+#!/usr/bin/env raku
+
+# Based on code produced by:
+#
+#   Author: Todd Larason <jtl@molehill.org>
+#   $XFree86: xc/programs/xterm/vttests/256colors2.pl,v 1.1 1999/07/11 08:49:54 dawes Exp $
+
+#   use the resources for colors 0-15 - usually more-or-less a
+#   reproduction of the standard ANSI colors, but possibly more
+#   pleasing shades
+
+# Color symbs:
+#
+#   red : red
+#   grn : green
+#   blu : blu3
+#   gra : gray
+#
+# Note that 6 ** 3 = 216.
+
+# --------------------------------------------------------------------
+my \ESC = "\x1b";
+my \CSI = "{ESC}[";
+my \RESET = "{CSI}0m";
+
+sub MAIN {
+    C_8bg_16fg;
+   # C_16to231in6rows;
+    C_16to231inFgBg;
+   # C_6x6x6;
+   # C_flat_6x6x6;
+   # C_more;
+   # C_samples;
+   # C_16to231;
+   # C_232to255;
+   # C_40to47_bold;
+   # C_0to8;
+   # C_8to16;
+   # C_232to256;
+}
+
+# --------------------------------------------------------------------
+sub C_8bg_16fg {
+    print q:to/EoT/;
+            C_8bg_16fg()
+        EoT
+    for 40..^48 -> $bg-color {
+        for 30..^38 -> $fg-color {
+            print "{CSI}{$bg-color}m{CSI}{$fg-color}m*{RESET}";
+        }
+        print ' ';
+        for 30..^38 -> $fg-color {
+            print "{CSI}{$bg-color}m{CSI}1;{$fg-color}m*{RESET}";
+        }
+        say '';
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_16to231in6rows {
+    print q:to/EoT/;
+            C_16to231in6rows()
+        EoT
+    my $color = 16;
+    for ^36 -> $row {
+        for ^6 -> $col {
+            printf(
+                "{CSI}48;5;%dm%3d {RESET}";
+                $color, $color,
+            );
+        ++$color;
+        }
+        say '';
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_16to231inFgBg {
+    print q:to/EoT/;
+            C_16to231inFgBg()
+        EoT
+    my $color = 16;
+    for ^36 -> $row {
+        for ^6 -> $col {
+            printf(
+                "{CSI}48;5;\%dm{CSI}38;5;\%dm%3d {RESET}";
+                $color, 237 - $color, $color,
+            );
+        ++$color;
+        }
+        say '';
+    }
+}
+
+# --------------------------------------------------------------------
+sub One_color ($grn, $red, $blu) {
+    my $color = ($red * 36) + ($grn * 6) + $blu + 16;
+    printf(
+        "{CSI}[48;5;%dm%3d   %d %d %d {CSI}[0m\n",
+        $color, $color, $grn, $red, $blu,
+    );
+}
+
+# --------------------------------------------------------------------
+sub C_samples {
+    One_color(4, 2, 5);
+    One_color(4, 5, 0);
+    One_color(3, 4, 5);
+    One_color(2, 4, 5);
+    One_color(2, 4, 5);
+}
+
+# --------------------------------------------------------------------
+sub C_more {
+    for 32..^42 -> $color {
+        printf(
+            "{CSI}48;5;%dm%3d{RESET} ",
+            $color, $color,
+        );
+    }
+    say "";
+}
+
+# --------------------------------------------------------------------
+sub C_16to231 {
+    print q:to/EoT/;
+            C_16to231()
+        These colors form a 6x6x6 color cube:
+        EoT
+    for ^6 -> $red {
+        for ^6 -> $grn {
+            for ^6 -> $blu {
+                printf(
+                   # <%3d %02x %02x %02x >.join(' ') ~ "\n",
+                   # "{ESC}]4;%d;rgb:%2.2x/%2.2x/%2.2x{ESC}\\",
+                    "{ESC}]4;%d;rgb:%02x/%02x/%02x{ESC}\\",
+                    ($red * 36) + ($grn * 6) + $blu + 16,
+                    ($red * 42.5).Int,
+                    ($grn * 42.5).Int,
+                    ($blu * 42.5).Int,
+                );
+            }
+        }
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_flat_6x6x6 {
+    print q:to/EoT/;
+            C_6x6x6()
+        EoT
+    for ^6 -> $red {
+        for ^6 -> $grn {
+            for ^6 -> $blu {
+                my $color = ($red * 36) + ($grn * 6) + $blu + 16;
+                printf(
+                    "{CSI}48;5;%dm%3d   %d %d %d {RESET}\n",
+                    $color, $color, $grn, $red, $blu,
+                );
+            }
+        }
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_6x6x6 {
+    print q:to/EoT/;
+            C_6x6x6()
+        EoT
+    for ^6 -> $grn {
+        for ^6 -> $red {
+            for ^6 -> $blu {
+                my $color = ($red * 36) + ($grn * 6) + $blu + 16;
+                print "{CSI}48;5;{$color}m  ";
+            }
+            print "{RESET} ";
+        }
+        print "\n";
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_232to255 {
+    print q:to/EoT/;
+            C_232to255()
+        Colors 232-255 are a grayscale ramp, intentionally leaving out
+        black and white:
+        EoT
+    for ^24 -> $gra {
+        my $level = ($gra * 10) + 8;
+       # printf(
+       #    "{ESC}]4;%d;rgb:%2.2x/%2.2x/%2.2x{ESC}\\",
+        printf(
+           # "\%d;rgb:%2.2x/%2.2x/%2.2x\n",
+            "{ESC}]4;%d;rgb:%2.2x/%2.2x/%2.2x{ESC}\\",
+           232 + $gra,
+           $level, $level, $level,
+        );
+    }
+}
+
+# --------------------------------------------------------------------
+sub C_232to256 {
+    print q:to/EoT/;
+            C_232to256()
+        Grayscale ramp:
+        EoT
+    for 232..^256 -> $color {
+        print "{CSI}48;5;{$color}m  ";
+    }
+    say "{RESET}";
+}
+
+# --------------------------------------------------------------------
+sub C_40to47_bold {
+    print q:to/EoT/;
+            C_40to47_bold()
+        EoT
+    for 40..^48 -> $color {
+        print "{CSI}1m{CSI}{$color}m  ";
+        print "{CSI}1;{$color}m  ";
+    }
+    say "{RESET}";
+}
+
+# --------------------------------------------------------------------
+sub C_0to8 {
+    print q:to/EoT/;
+            C_0to8()
+        EoT
+    for ^8 -> $color {
+        print "{CSI}48;5;{$color}m  ";
+    }
+    say "{RESET}";
+}
+
+# --------------------------------------------------------------------
+sub C_8to16 {
+    print q:to/EoT/;
+            C_8to16()
+        EoT
+    for 8..^16 -> $color {
+        print "{CSI}48;5;{$color}m  ";
+    }
+    say "{RESET}";
+}

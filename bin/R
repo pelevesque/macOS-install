@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Invoke raku interactively or not. For interactive usage, I prefer
+# ◆rlwrap because it captures a history of commands in (in this case)
+# ~/perl6_history.
+
+if [[ "$#" -eq 0 ]] ; then
+    rlwrap -a raku
+else
+    raku "$@"
+fi

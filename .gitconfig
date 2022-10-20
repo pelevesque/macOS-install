@@ -1,0 +1,9 @@
+[user]
+    name = Pierre-Emmanuel Lévesque
+    email = pierre.e.levesque@gmail.com
+
+[core]
+    excludesfile = /Users/pel/.config/git/ignore
+
+[credential]
+    help = cache
