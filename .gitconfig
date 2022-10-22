@@ -7,3 +7,16 @@
 
 [credential]
     help = cache
+
+[alias]
+    a = add
+    b = branch
+    c = commit
+    cane = commit --amend --no-edit
+    co = checkout
+    cob = checkout -b
+    d = diff
+    logo = log --oneline
+    rc = rebase --continue
+    ri = rebase -i
+    s = status
