@@ -4,24 +4,24 @@
 #endif
 #include "eeprom.h"
 #include "keymap_german.h"
-#include "keymap_nordic.h"
+// #include "keymap_nordic.h"
 #include "keymap_french.h"
 #include "keymap_spanish.h"
 #include "keymap_hungarian.h"
 #include "keymap_swedish.h"
-#include "keymap_br_abnt2.h"
+// #include "keymap_br_abnt2.h"
 #include "keymap_canadian_multilingual.h"
-#include "keymap_german_ch.h"
-#include "keymap_jp.h"
+// #include "keymap_german_ch.h"
+// #include "keymap_jp.h"
 #include "keymap_korean.h"
 #include "keymap_bepo.h"
 #include "keymap_italian.h"
 #include "keymap_slovenian.h"
 #include "keymap_lithuanian_azerty.h"
 #include "keymap_danish.h"
-#include "keymap_norwegian.h"
+// #include "keymap_norwegian.h"
 #include "keymap_portuguese.h"
-#include "keymap_contributions.h"
+// #include "keymap_contributions.h"
 #include "keymap_czech.h"
 #include "keymap_romanian.h"
 #include "keymap_russian.h"
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LAYER6] = LAYOUT_planck_grid(
-    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,    ST_MACRO_29,    ST_MACRO_30,    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    ST_MACRO_34,    
+    ST_MACRO_23,    ST_MACRO_24,    ST_MACRO_25,    ST_MACRO_26,    ST_MACRO_27,    ST_MACRO_28,    ST_MACRO_29,    X(0x00E0),    ST_MACRO_31,    ST_MACRO_32,    ST_MACRO_33,    ST_MACRO_34,    
     ST_MACRO_35,    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -341,7 +341,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_30:
     if (record->event.pressed) {
-      SEND_STRING(SS_LALT(SS_TAP(X_0) SS_TAP(X_0) SS_TAP(X_E) SS_TAP(X_0) ));
+      SEND_STRING("");
 
     }
     break;
