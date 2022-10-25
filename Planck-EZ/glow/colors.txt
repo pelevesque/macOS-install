@@ -1,0 +1,28 @@
+Colors
+
+#000000 black
+#FFFFFF white
+
+#FF0000 red
+#00FF00 green
+#0000FF blue
+
+#FFFF00 yellow
+#00FFFF cyan
+#FF00FF magenta
+
+wheel
+https://www.wtamu.edu/~cbaird/sq/2015/01/22/why-are-red-yellow-and-blue-the-primary-colors-in-painting-but-computer-cscreens-use-red-green-and-blue/
+
+red             yellow            green           cyan              blue            magenta
+#FF0000 #FFF700 #FFFF00 #F7FF00 | #00FF00 #00FFF7 #00FFFF #00F7FF | #0000FF #F700FF #FF00FF #FF00F7
+
+encoding
+
+1. Go from hex⭢original_64⭢custom_64 and store that in graphical configurator.
+2. Use Raku to change custom_64⭢original_64⭢hex everywhere in the file.
+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/ original 64 encoding
+.,;=-'`[]\*               abcdefghijklmnopqrstuvwxyz0123456789+/ custom   64 encoding
+
+* Missing some symbols to replace capital letters. Maybe we can use special keys
+like the control or option keys?
