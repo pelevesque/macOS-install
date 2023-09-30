@@ -3,6 +3,7 @@ local o = vim.opt
 o.number = true
 o.wrap = true
 o.colorcolumn = '70,80'
+o.expandtab = true
 
 require ('packer').startup(function()
     use 'wbthomason/packer.nvim'
