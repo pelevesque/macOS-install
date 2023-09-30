@@ -120,18 +120,18 @@ done
 
     # .config/git/gitk .config/git/ignore
 mkdir -p ~/.config/git
-ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/git/gitk ~/.config/git/gitk
-ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/git/ignore ~/.config/git/ignore
+ln -sf ~/p/macOS-install/configurations/dotfiles/.config/git/gitk ~/.config/git/gitk
+ln -sf ~/p/macOS-install/configurations/dotfiles/.config/git/ignore ~/.config/git/ignore
 
     # .config/nvim/init.lua
 mkdir -p ~/.config/nvim
-ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+ln -sf ~/p/macOS-install/configurations/dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
 
     # .gitconfig
-ln -sf ~/p/macOS-install/configurations/.dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/p/macOS-install/configurations/dotfiles/.gitconfig ~/.gitconfig
 
     # .zshrc
-ln -sf ~/p/macOS-install/configurations/.dotfiles/.zshrc ~/.zshrc
+ln -sf ~/p/macOS-install/configurations/dotfiles/.zshrc ~/.zshrc
 
 ######################################################################
 # Restart
