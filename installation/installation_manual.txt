@@ -40,3 +40,6 @@ Manual Configuration
         TextEdit > Settings
             - Plain text font: IBM Plex Sans 16
             - Rich text font: IBM Plex Sans 16
+
+9. Create a SSH key for GITHUB
+        Follow: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
