@@ -1,0 +1,42 @@
+Manual Configuration
+
+1. Configure Trackpad: tap to click
+        System Settings > Trackpad
+            - Tap to click: true
+
+2. Configure Trackpad: drag lock
+        System Settings > Accessibility > Pointer Control > Trackpad Options
+            - Use trackpad for dragging: true
+            - Dragging style: Without Drag Lock
+
+3. Remap Cap Locks key to escape
+        System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys
+            -Caps Lock key: Escape
+
+4. Configure Input Sources: use correct languages
+        System Settings > Keyboard > Input Sources [Edit]
+            - remove English
+            - add Canadian French
+            - add Unicode Hex Input (will be used as English and Unicode)
+            - show Input menu in menu bar: true
+            - Correct spelling automatically: false
+            - Capitalize words automatically: false
+
+5. Configure Dock: size, position, auto hide
+        System Settings > Desktop & Dock
+            - Size: adjust
+            - Position on screen: left
+            - Automatically hide and show the Dock: true
+
+6. Configure iTerm2: create new profile
+        iTerm2 > Settings > Profiles
+            - Create pel profile and set it as default
+
+7. Configure iTerm2: use IBM Plex Sans
+        iTerm2 > Settings > Profiles > Text
+            - Font: IBM Plex Mono Regular 16
+
+8. Configure TextEdit: use IBM Plex Sans
+        TextEdit > Settings
+            - Plain text font: IBM Plex Sans 16
+            - Rich text font: IBM Plex Sans 16
