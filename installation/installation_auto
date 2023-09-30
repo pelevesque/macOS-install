@@ -103,6 +103,9 @@ done
 #  Symlnk Bin Programs
 ######################################################################
 
+    # Create Bin Directory,
+mkdir ~/bin
+
     # Configure.
 programs=(
     colorcube
