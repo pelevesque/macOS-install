@@ -1,0 +1,140 @@
+#!/bin/zsh
+
+######################################################################
+# Apps Installation
+######################################################################
+
+    # Install Homebrew.
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update
+
+    # Install programs.
+brew install btop
+brew install ffmpeg
+brew install git
+brew install git-gui
+brew install imagemagick
+brew install lilypond
+brew install neovim
+brew install node
+brew install rakudo
+brew install ranger
+brew install rlwrap
+brew install tig
+brew install --cask discord
+brew install --cask gimp
+brew install --cask inkscape
+brew install --cask iterm2
+brew install --cask libreoffice
+brew install --cask reaper
+brew install --cask vlc
+brew install --cask whatsapp
+brew install --cask zsa-wally
+
+    # Install font: IBM Plex
+brew tap homebrew/cask-fonts
+brew install --cask font-ibm-plex 
+
+######################################################################
+# Dock Setup
+######################################################################
+
+    # Configure.
+apps=(
+    iTerm
+    Safari
+    Discord
+    WhatsApp
+    LibreOffice
+    REAPER
+    Inkscape
+    GIMP
+)
+
+    # Clear.
+defaults write com.apple.dock persistent-apps -array;
+
+    # Populate.
+for app in ${apps[@]}; do
+     defaults write com.apple.dock persistent-apps -array-add "
+        <dict>
+            <key>tile-data</key>
+            <dict>
+                <key>file-data</key>
+                <dict>
+                    <key>_CFURLString</key>
+                    <string>/Applications/$app.app</string>
+                    <key>_CFURLStringType</key>
+                    <integer>0</integer>
+                </dict>
+            </dict>
+         </dict>
+    "
+done
+
+    # Reset.
+killall Dock
+
+######################################################################
+# Github Repo Downloads
+######################################################################
+
+    # Create Project Directory.
+mkdir ~/p
+cd ~/p
+
+    # Configure.
+repos=(
+    orfeolang/Euridice
+    orfeolang/Orfeo-JS
+    orfeolang/Orfeo-Raku
+    pelevesque/CV
+    pelevesque/macOS-install
+    pelevesque/MIDI-Make
+    pelevesque/Music-for-Pieces-of-Metal
+)
+
+    # Download.
+for repo in ${repos[@]}; do
+    git clone https://github.com/$repo.git
+done
+
+######################################################################
+#  Symlnk Bin Programs
+######################################################################
+
+    # Configure.
+programs=(
+    colorcube
+    R
+)
+
+    # Make Symlinks.
+for program in ${programs[@]}; do
+    ln -sf ~/p/macOS-install/bin/$program ~/bin/$program 
+done
+
+######################################################################
+# Symlink Dot Files
+######################################################################
+
+    # .config/git/gitk .config/git/ignore
+mkdir -p ~/.config/git
+ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/git/gitk ~/.config/git/gitk
+ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/git/ignore ~/.config/git/ignore
+
+    # .config/nvim/init.lua
+mkdir -p ~/.config/nvim
+ln -sf ~/p/macOS-install/configurations/.dotfiles/.config/nvim/init.lua ~/.config/nvim/init.lua
+
+    # .gitconfig
+ln -sf ~/p/macOS-install/configurations/.dotfiles/.gitconfig ~/.gitconfig
+
+    # .zshrc
+ln -sf ~/p/macOS-install/configurations/.dotfiles/.zshrc ~/.zshrc
+
+######################################################################
+# Restart
+######################################################################
+
+sudo shutdown -r now
