@@ -15,9 +15,9 @@ Manual Configuration
 
 4. Configure Input Sources: use correct languages
         System Settings > Keyboard > Input Sources [Edit]
-            - remove English
             - add Canadian French
             - add Unicode Hex Input (will be used as English and Unicode)
+            - remove English
             - show Input menu in menu bar: true
             - Correct spelling automatically: false
             - Capitalize words automatically: false
