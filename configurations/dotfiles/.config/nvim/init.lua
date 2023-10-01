@@ -56,3 +56,12 @@ vim.keymap.set('n', 'Km',
 vim.keymap.set('n', 'Kn',
     function() varProfiler('Raku', 'note("%s: <$%s>");') end
 )
+
+-- If you like "Y" to work from the cursor to the end of line (which is more logical, but not Vi-compatible) use ":map Y y$".
+-- Try the command YP. This makes a copy of the current line 
+-- and leaves you on this copy, which is placed before the current line. 
+-- The command Y is a convenient abbreviation for yy. 
+-- The command Yp will also make a copy of the current line, 
+-- and place it after the current line. 
+-- You can give Y a count of lines to yank, and thus duplicate 
+-- several lines try 3YP.
