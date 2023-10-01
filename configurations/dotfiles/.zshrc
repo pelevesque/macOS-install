@@ -1,7 +1,7 @@
 PS1='%F{#8fb573}%~ ➤%f '
 
 alias ll='ls -al --color'
-alias ldir='ls -al | grep ^d'
+alias ldir='ls -al | egrep -v " \.$| \..$| \.DS_Store$| \.Trash$"'
 alias o='open .'
 alias gd='cd ~/p/macOS-install/configurations/dotfiles'
 alias ez='nvim ~/p/macOS-install/configurations/dotfiles/.zshrc'
