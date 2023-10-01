@@ -22,6 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "navarasu/onedark.nvim",
     "airblade/vim-gitgutter",
+    "ThePrimeagen/vim-be-good",
 })
 
 require('onedark').setup { style = 'warmer' }
