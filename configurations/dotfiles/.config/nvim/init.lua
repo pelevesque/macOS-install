@@ -29,7 +29,7 @@ require('onedark').setup { style = 'warmer' }
 require('onedark').load()
 
 vim.api.nvim_exec([[
-    hi EOLSpace ctermbg=238 guibg=#333333
+    hi EOLSpace ctermbg=238 guibg=#FF0000
     match EOLSpace /\s\+$/
 ]], false)
 
