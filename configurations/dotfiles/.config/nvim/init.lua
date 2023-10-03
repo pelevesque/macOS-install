@@ -71,3 +71,32 @@ vim.keymap.set('n', 'KR',
 -- Remap keys.
 vim.keymap.set('i', 'fj', '<Esc>')
 vim.keymap.set('i', 'jf', '<Esc>')
+
+----------------------------------------------------------------------
+-- Add switch case to Lua.
+_G.switch = function(param, case_table)
+    local case = case_table[param]
+    if case then return case() end
+    local def = case_table['default']
+    return def and def() or nil
+end
+
+function commentToggler()
+    local commentMark
+    switch(vim.bo.filetype, {
+        ['lua']  = function() commentMark = '--' end,
+	['raku'] = function() commentMark = '#'  end,
+	['js']   = function() commentMark = '//' end,
+    })
+    local line = vim.api.nvim_get_current_line()
+    local nline
+    local commentMarkLength = string.len(commentMark)
+    if line:sub(1, commentMarkLength) == commentMark then
+        nline = line:sub(commentMarkLength + 1)
+    else
+        nline = commentMark .. line:sub(1)
+    end
+    vim.api.nvim_set_current_line(nline)
+end
+
+vim.keymap.set('n', 'KK', function() commentToggler() end)
