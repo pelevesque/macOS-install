@@ -1,9 +1,13 @@
+----------------------------------------------------------------------
+-- Set options.
 local o = vim.opt
 
 o.number = true
 o.relativenumber = true
 o.colorcolumn = '70,80'
 
+----------------------------------------------------------------------
+-- Load plugins.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -27,11 +31,18 @@ require("lazy").setup({
 require('onedark').setup { style = 'warmer' }
 require('onedark').load()
 
+----------------------------------------------------------------------
+-- Color trailing spaces.
 vim.api.nvim_exec([[
     hi EOLSpace ctermbg=238 guibg=#FF0000
     match EOLSpace /\s\+$/
 ]], false)
 
+----------------------------------------------------------------------
+-- Automatically print out variable profile code
+--
+-- console.log('var: ' = var); // in JS
+-- note("var: <$var>"); # in Raku
 local function notEmpty(s) return s ~= nil and s ~= '' end
 
 local function varProfiler(lang, output)
@@ -56,6 +67,7 @@ vim.keymap.set('n', 'Kn',
     function() varProfiler('Raku', 'note("%s: <$%s>");') end
 )
 
+----------------------------------------------------------------------
 -- Remap keys.
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
