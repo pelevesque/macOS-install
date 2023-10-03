@@ -56,3 +56,19 @@ vim.keymap.set('n', 'Km',
 vim.keymap.set('n', 'Kn',
     function() varProfiler('Raku', 'note("%s: <$%s>");') end
 )
+
+-- Remap keys.
+local function map(mode, lhs, rhs, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        if opts.desc then
+            opts.desc = 'keymaps.lua: ' .. opts.desc
+        end
+        options = vim.tbl_extend('force', options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
+end
+
+map('i', 'jj', '<Esc>', {
+    desc = 'Remap jj to escape. Note: Does not work in macros.'
+})
