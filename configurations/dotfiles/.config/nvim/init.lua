@@ -69,9 +69,8 @@ vim.keymap.set('n', 'KR',
 
 ----------------------------------------------------------------------
 -- Remap keys.
-vim.keymap.set('i', 'fj', '<Esc>')
-vim.keymap.set('i', 'jf', '<Esc>')
 vim.keymap.set('i', 'jj', '<Esc>')
+
 ----------------------------------------------------------------------
 -- Add switch case to Lua.
 _G.switch = function(param, case_table)
