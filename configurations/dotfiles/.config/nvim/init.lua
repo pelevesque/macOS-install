@@ -59,11 +59,11 @@ local function varProfiler(lang, output)
     end
 end
 
-vim.keymap.set('n', 'Km',
+vim.keymap.set('n', 'KJ',
     function() varProfiler('JS', "console.log('%s: ' + %s);") end
 )
 
-vim.keymap.set('n', 'Kn',
+vim.keymap.set('n', 'KR',
     function() varProfiler('Raku', 'note("%s: <$%s>");') end
 )
 
