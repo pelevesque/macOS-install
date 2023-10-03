@@ -84,8 +84,8 @@ function commentToggler()
     local commentMark
     switch(vim.bo.filetype, {
         ['lua']  = function() commentMark = '--' end,
-	['raku'] = function() commentMark = '#'  end,
-	['js']   = function() commentMark = '//' end,
+        ['raku'] = function() commentMark = '#'  end,
+        ['js']   = function() commentMark = '//' end,
     })
     local line = vim.api.nvim_get_current_line()
     local nline
