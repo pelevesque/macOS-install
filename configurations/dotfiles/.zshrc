@@ -11,3 +11,6 @@ alias eg='nvim ~/p/macOS-install/configurations/dotfiles/.gitconfig'
 
 path+=('/Users/pel/bin')
 export PATH
+
+export VISUAL=/usr/local/bin/nvim
+export EDITOR=/usr/bin/vi
