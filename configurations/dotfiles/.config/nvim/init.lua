@@ -3,7 +3,6 @@ local o = vim.opt
 o.number = true
 o.relativenumber = true
 o.colorcolumn = '70,80'
-o.wildmenu = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
