@@ -1,4 +1,4 @@
-PS1='%F{#8fb573}%~ ➤%f '
+PS1='%F{#98c379}%~ ➤%f '
 
 alias ll='ls -al --color'
 alias ldir='ls -al | egrep -v " \.$| \..$| \.DS_Store$| \.Trash$"'
