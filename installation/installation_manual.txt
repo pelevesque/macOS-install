@@ -34,12 +34,12 @@ Manual Configuration
 
 7. Configure iTerm2: use IBM Plex Sans
         iTerm2 > Settings > Profiles > Text
-            - Font: IBM Plex Mono Regular 16
+            - Font: IBM Plex Mono Regular 18
 
 8. Configure TextEdit: use IBM Plex Sans
         TextEdit > Settings
-            - Plain text font: IBM Plex Sans 16
-            - Rich text font: IBM Plex Sans 16
+            - Plain text font: IBM Plex Sans 18
+            - Rich text font: IBM Plex Sans 18
 
 9. Create a SSH key for GITHUB
         Follow: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
