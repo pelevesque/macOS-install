@@ -69,4 +69,5 @@ vim.keymap.set('n', 'KR',
 
 ----------------------------------------------------------------------
 -- Remap keys.
-vim.keymap.set('i', 'kj', '<Esc>')
+vim.keymap.set('i', 'fj', '<Esc>')
+vim.keymap.set('i', 'jf', '<Esc>')
