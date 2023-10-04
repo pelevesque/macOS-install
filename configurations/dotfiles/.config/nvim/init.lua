@@ -71,31 +71,21 @@ vim.keymap.set('n', 'KR',
 -- Remap keys.
 vim.keymap.set('i', 'jj', '<Esc>')
 
-----------------------------------------------------------------------
--- Add switch case to Lua.
-_G.switch = function(param, case_table)
-    local case = case_table[param]
-    if case then return case() end
-    local def = case_table['default']
-    return def and def() or nil
-end
-
-function commentToggler()
-    local commentMark
-    switch(vim.bo.filetype, {
-        ['lua']  = function() commentMark = '--' end,
-        ['raku'] = function() commentMark = '#'  end,
-        ['js']   = function() commentMark = '//' end,
-    })
+_G.comment_toggler = function ()
+    local comment_mark_map = {
+        ['raku'] = "# ",
+        ['js']   = "// ",
+        ['lua']  = "-- ",
+    }
+    local comment_mark = comment_mark_map[vim.bo.filetype] or ""
+    local comment_mark_length = string.len(comment_mark)
     local line = vim.api.nvim_get_current_line()
-    local nline
-    local commentMarkLength = string.len(commentMark)
-    if line:sub(1, commentMarkLength) == commentMark then
-        nline = line:sub(commentMarkLength + 1)
+    local new_line
+    if line:sub(1, comment_mark_length) == comment_mark then
+        new_line = line:sub(comment_mark_length + 1)
     else
-        nline = commentMark .. line:sub(1)
+        new_line = comment_mark .. line:sub(1)
     end
-    vim.api.nvim_set_current_line(nline)
+    vim.api.nvim_set_current_line(new_line)
 end
-
-vim.keymap.set('n', 'KK', function() commentToggler() end)
+vim.keymap.set('n', 'KK', comment_toggler)
