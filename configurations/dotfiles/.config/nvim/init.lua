@@ -6,6 +6,13 @@ o.number = true
 o.relativenumber = true
 o.colorcolumn = '70,80'
 
+    -- Tabs to spaces.
+o.tabstop = 4
+o.shiftwidth = 4
+o.softtabstop = 4
+o.expandtab = true
+o.smarttab = true
+
 ----------------------------------------------------------------------
 -- Load plugins.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
