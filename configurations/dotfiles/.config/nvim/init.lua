@@ -42,9 +42,9 @@ require("lazy").setup({
 require('onedark').setup { style = 'warmer' }
 require('onedark').load()
 
-require 'colorizer'.setup()
+require('colorizer').setup()
 
-require('hardline').setup {}
+require('hardline').setup()
 
 ----------------------------------------------------------------------
 -- Color trailing spaces.
