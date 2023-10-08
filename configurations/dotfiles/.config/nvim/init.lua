@@ -1,4 +1,4 @@
-----------------------------------------------------------------------
+----------------------------------------------------------------------aaa
 -- Set options.
 local o = vim.opt
 
@@ -12,6 +12,8 @@ o.shiftwidth = 4
 o.softtabstop = 4
 o.expandtab = true
 o.smarttab = true
+
+vim.g.mapleader = " "
 
 ----------------------------------------------------------------------
 -- Load plugins.
@@ -66,11 +68,11 @@ local function varProfiler(lang, output)
     end
 end
 
-vim.keymap.set('n', 'KJ',
+vim.keymap.set('n', '<leader>j',
     function() varProfiler('JS', "console.log('%s: ' + %s);") end
 )
 
-vim.keymap.set('n', 'KR',
+vim.keymap.set('n', '<leader>r',
     function() varProfiler('Raku', 'note("%s: <$%s>");') end
 )
 
@@ -95,4 +97,4 @@ _G.comment_toggler = function ()
     end
     vim.api.nvim_set_current_line(new_line)
 end
-vim.keymap.set('n', 'KK', comment_toggler)
+vim.keymap.set('n', '<leader>c', comment_toggler)
