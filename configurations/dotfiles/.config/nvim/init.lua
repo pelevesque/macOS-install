@@ -48,44 +48,52 @@ vim.api.nvim_exec([[
 ]], false)
 
 ----------------------------------------------------------------------
--- Automatically print out variable profile code
+-- Print out variable profile code
 --
 -- console.log('var: ' = var); // in JS
 -- note("var: <$var>"); # in Raku
-local function notEmpty(s) return s ~= nil and s ~= '' end
+local function not_empty(s) return s ~= nil and s ~= '' end
 
-local function varProfiler(lang, output)
+_G.var_profiler = function()
+    local lang_map = {
+        ['javascript'] = 'JS',
+        ['raku'] = 'Raku',
+    }
+    if lang_map[vim.bo.filetype] == nil then return end
+    local output_map = {
+        ['javascript'] = "console.log(`%s: ${%s}`);",
+        ['raku'] = 'note("%s: <$%s>");',
+    }
     local vars
     vim.ui.input(
-        { prompt = string.format('Enter %s var name(s): ', lang) },
+        { prompt = string.format(
+            'Enter %s var name(s): ', lang_map[vim.bo.filetype]
+        )},
         function(input) vars = input end
     )
-    if notEmpty(vars) then
+    if not_empty(vars) then
         for var in vars:gmatch('%S+') do
-            local line = string.format(output, var, var)
+            local line = string.format(
+                output_map[vim.bo.filetype], var, var
+            )
             vim.api.nvim_put({ line }, 'l', false, true)
         end
     end
 end
 
-vim.keymap.set('n', '<leader>j',
-    function() varProfiler('JS', "console.log('%s: ' + %s);") end
-)
-
-vim.keymap.set('n', '<leader>r',
-    function() varProfiler('Raku', 'note("%s: <$%s>");') end
-)
+vim.keymap.set('n', '<leader>p', var_profiler)
 
 ----------------------------------------------------------------------
 -- Remap keys.
 vim.keymap.set('i', 'jj', '<Esc>')
 
-_G.comment_toggler = function ()
+_G.comment_toggler = function()
     local comment_mark_map = {
+        ['javascript'] = "// ",
+        ['lua'] = "-- ",
         ['raku'] = "# ",
-        ['js']   = "// ",
-        ['lua']  = "-- ",
     }
+    if comment_mark_map[vim.bo.filetype] == nil then return end
     local comment_mark = comment_mark_map[vim.bo.filetype] or ""
     local comment_mark_length = string.len(comment_mark)
     local line = vim.api.nvim_get_current_line()
@@ -97,4 +105,5 @@ _G.comment_toggler = function ()
     end
     vim.api.nvim_set_current_line(new_line)
 end
+
 vim.keymap.set('n', '<leader>c', comment_toggler)
