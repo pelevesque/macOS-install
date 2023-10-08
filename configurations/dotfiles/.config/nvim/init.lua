@@ -34,11 +34,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     "navarasu/onedark.nvim",
     "airblade/vim-gitgutter",
+    "NvChad/nvim-colorizer.lua",
     "ThePrimeagen/vim-be-good",
 })
 
 require('onedark').setup { style = 'warmer' }
 require('onedark').load()
+
+require 'colorizer'.setup()
 
 ----------------------------------------------------------------------
 -- Color trailing spaces.
