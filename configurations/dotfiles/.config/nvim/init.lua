@@ -35,6 +35,7 @@ require("lazy").setup({
     "navarasu/onedark.nvim",
     "airblade/vim-gitgutter",
     "NvChad/nvim-colorizer.lua",
+    "ojroques/nvim-hardline",
     "ThePrimeagen/vim-be-good",
 })
 
@@ -42,6 +43,8 @@ require('onedark').setup { style = 'warmer' }
 require('onedark').load()
 
 require 'colorizer'.setup()
+
+require('hardline').setup {}
 
 ----------------------------------------------------------------------
 -- Color trailing spaces.
