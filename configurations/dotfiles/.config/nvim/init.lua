@@ -36,6 +36,7 @@ require("lazy").setup({
     "airblade/vim-gitgutter",
     "NvChad/nvim-colorizer.lua",
     "ojroques/nvim-hardline",
+    "tpope/vim-fugitive",
     "ThePrimeagen/vim-be-good",
 })
 
