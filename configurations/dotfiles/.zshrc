@@ -1,5 +1,6 @@
 PS1='%F{#98c379}%~ ➤%f '
 
+alias tinytim='telnet yay.tim.org 5440'
 alias n='nvim'
 alias ll='ls -al --color'
 alias ldir='ls -al | egrep -v " \.$| \..$| \.DS_Store$| \.Trash$"'
