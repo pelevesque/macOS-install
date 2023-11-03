@@ -34,7 +34,7 @@ brew install --cask zsa-wally
 
     # Install font: IBM Plex
 brew tap homebrew/cask-fonts
-brew install --cask font-ibm-plex 
+brew install --cask font-ibm-plex
 
 ######################################################################
 # Dock Setup
@@ -115,7 +115,7 @@ programs=(
 
     # Make Symlinks.
 for program in ${programs[@]}; do
-    ln -sf ~/p/macOS-install/bin/$program ~/bin/$program 
+    ln -sf ~/p/macOS-install/bin/$program ~/bin/$program
 done
 
 ######################################################################
