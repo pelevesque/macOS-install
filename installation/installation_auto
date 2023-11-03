@@ -21,6 +21,7 @@ brew install rakudo
 brew install ranger
 brew install rlwrap
 brew install tig
+brew install telnet
 brew install --cask discord
 brew install --cask gimp
 brew install --cask inkscape
