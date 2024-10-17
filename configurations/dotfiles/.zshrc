@@ -11,6 +11,7 @@ alias ev='nvim ~/p/macOS-install/configurations/dotfiles/.config/nvim/init.lua'
 alias eg='nvim ~/p/macOS-install/configurations/dotfiles/.gitconfig'
 
 path+=('/Users/pel/bin')
+path+=('/Applications/Visual Studio Code.app/Contents/Resources/app/bin')
 export PATH
 
 export VISUAL=/usr/local/bin/nvim
