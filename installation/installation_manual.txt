@@ -28,25 +28,29 @@ Manual Configuration
             - Position on screen: left
             - Automatically hide and show the Dock: true
 
-6. Configure iTerm2: create new profile
+6. Configure Mission Control Switch animation:
+        Accessibility > Display
+            - Reduce Motion: true
+
+7. Configure iTerm2: create new profile
         iTerm2 > Settings > Profiles
             - Create pel profile and set it as default
 
-7. Configure iTerm2 Look: onedark colorprofile, minimal style
+8. Configure iTerm2 Look: onedark colorprofile, minimal style
         iTerm2 > Settings > Profiles > Pel > Color Presets...
             - Import onedark.itermcolors from:
 	        macOS-install/configurations/iterm2/onedark.itermcolors
         iTerm2 > Settings > Appearance
 	    - Theme: Minimal
 
-8. Configure iTerm2: use IBM Plex Sans
+9. Configure iTerm2: use IBM Plex Sans
         iTerm2 > Settings > Profiles > Text
             - Font: IBM Plex Mono Regular 18
 
-9. Configure TextEdit: use IBM Plex Sans
+10. Configure TextEdit: use IBM Plex Sans
         TextEdit > Settings
             - Plain text font: IBM Plex Sans 18
             - Rich text font: IBM Plex Sans 18
 
-10. Create a SSH key for GITHUB
+11. Create a SSH key for GITHUB
         Follow: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
