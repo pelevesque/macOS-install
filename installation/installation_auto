@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 ######################################################################
 # Apps Installation
 ######################################################################
@@ -31,6 +29,7 @@ brew install --cask reaper
 brew install --cask vlc
 brew install --cask whatsapp
 brew install --cask zsa-wally
+brew install --cask wezterm
 
     # Install font: IBM Plex
 brew tap homebrew/cask-fonts
@@ -137,6 +136,8 @@ ln -sf ~/p/macOS-install/configurations/dotfiles/.gitconfig ~/.gitconfig
     # .zshrc
 ln -sf ~/p/macOS-install/configurations/dotfiles/.zshrc ~/.zshrc
 
+    # .wezterm
+ln -sf ~/p/macOS-install/configurations/dotfiles/.wezterm.lua ~/.wezterm.lua
 ######################################################################
 # Restart
 ######################################################################
