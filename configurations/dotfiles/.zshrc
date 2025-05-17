@@ -38,3 +38,5 @@ cat<<'EOF'
   "Sporty"      "Ginger"       "Posh"         "Scary"        "Baby"
 
 EOF
+
+[ -f "/Users/pel/.ghcup/env" ] && . "/Users/pel/.ghcup/env" # ghcup-env
