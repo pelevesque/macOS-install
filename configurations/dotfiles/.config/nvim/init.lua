@@ -91,9 +91,6 @@ end
 vim.keymap.set('n', '<leader>p', var_profiler)
 
 ----------------------------------------------------------------------
--- Remap keys.
-vim.keymap.set('i', 'jj', '<Esc>')
-
 _G.comment_toggler = function()
     local comment_mark_map = {
         ['javascript'] = "// ",
